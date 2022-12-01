@@ -16,24 +16,25 @@ public class task1 {
         }
     }
     public static void MergeSort(int [] arr, int size) {
-        int halfSize = size / 2;
-        int[] leftArr = new int[halfSize];
-        int[] rightArr = new int[size - halfSize];
+        int leftSize = size / 2;
+        int rightSize = size - leftSize;
+        int[] leftArr = new int[leftSize];
+        int[] rightArr = new int[rightSize];
         if (size == 0 || size == 1) return;
-        for (int i = 0; i < halfSize; i++) {
+        for (int i = 0; i < leftSize; i++) {
             leftArr[i] = arr[i];
         }
-        for (int i = halfSize; i < size; i++) {
-            rightArr[i - halfSize] = arr[i];
+        for (int i = leftSize; i < size; i++) {
+            rightArr[i - leftSize] = arr[i];
         }
-        MergeSort(leftArr, halfSize);
-        MergeSort(rightArr, size - halfSize);
+        MergeSort(leftArr, leftSize);
+        MergeSort(rightArr, rightSize);
     
-        MergeArray(arr, leftArr, rightArr, halfSize, size - halfSize);
+        MergeArray(arr, leftArr, rightArr, leftSize, rightSize);
     }
-    public static void MergeArray(int[] arr, int[] leftArr, int[] rightArr, int left, int right) {
+    public static void MergeArray(int[] arr, int[] leftArr, int[] rightArr, int leftSize, int rightSize) {
         int i = 0, j = 0, k = 0;
-        while (i < left && j < right) {
+        while (i < leftSize && j < rightSize) {
             if (leftArr[i] <= rightArr[j]) {
                 arr[k++] = leftArr[i++];
             }
@@ -41,10 +42,10 @@ public class task1 {
                 arr[k++] = rightArr[j++];
             }
         }
-        while (i < left) {
+        while (i < leftSize) {
             arr[k++] = leftArr[i++];
         }
-        while (j < right) {
+        while (j < rightSize) {
             arr[k++] = rightArr[j++];
         }
     }
