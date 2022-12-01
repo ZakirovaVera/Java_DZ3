@@ -16,11 +16,12 @@ public class task1 {
         }
     }
     public static void MergeSort(int [] arr, int size) {
+        if (size < 2) return;
         int leftSize = size / 2;
         int rightSize = size - leftSize;
         int[] leftArr = new int[leftSize];
         int[] rightArr = new int[rightSize];
-        if (size == 0 || size == 1) return;
+        
         for (int i = 0; i < leftSize; i++) {
             leftArr[i] = arr[i];
         }
