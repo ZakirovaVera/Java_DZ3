@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 // Реализовать алгоритм сортировки слиянием
 public class task1 {
     public static void main(String[] args) {
