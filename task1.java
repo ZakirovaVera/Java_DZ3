@@ -36,12 +36,10 @@ public class task1 {
     public static void MergeArray(int[] arr, int[] leftArr, int[] rightArr, int leftSize, int rightSize) {
         int i = 0, j = 0, k = 0;
         while (i < leftSize && j < rightSize) {
-            if (leftArr[i] <= rightArr[j]) {
+            if (leftArr[i] <= rightArr[j])
                 arr[k++] = leftArr[i++];
-            }
-            else {
+            else
                 arr[k++] = rightArr[j++];
-            }
         }
         while (i < leftSize) {
             arr[k++] = leftArr[i++];
